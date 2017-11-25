@@ -10,6 +10,9 @@ auth提供2中认证模式，基于$_SESSION的认证，和基于token的api认�
 
 ### 2. 使用
 详细使用见src/demo目录，web是session auth模式，api是token auth
+```
+composer require shulinqian/auth
+```
 
 #### 配置:
 ```
