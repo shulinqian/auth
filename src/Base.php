@@ -96,7 +96,7 @@ abstract class Base{
             $this->loginUser = unserialize($loginUser);
         }
         if($this->loginUser && isset($this->loginUser['expire'])){
-            if($this->loginUser['expire'] > time()){
+            if($this->loginUser['expire'] < time()){
                 $this->loginOut();
                 return null;
             }
@@ -136,10 +136,14 @@ abstract class Base{
      * 退出登录
      * @return bool
      */
-    public function loginOut() {
+    public function loginOut($token = null) {
+        $user = $this->isLogin($token);
+        if(!$user){
+            return false;
+        }
         $sessionStore = $this->sessionStore;
-        $sessionStore->delete();
-        $this->model->clean();
+        $sessionStore->delete($token);
+        $this->model->clean($user);
         return true;
     }
 

@@ -8,12 +8,6 @@
 use Composer\Autoload\ClassLoader;
 
 $loader = require __DIR__ . '/vendor/autoload.php';
-function test(){
-    $i =0;
-    yield $i++;
-    yield $i++;
-    yield $i++;
-}
 
 include __DIR__ . '/UserModel.php';
 
