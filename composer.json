@@ -1,0 +1,19 @@
+{
+  "name": "shulinqian/auth",
+  "description": "php通用权限auth库",
+  "type": "thinkweb-extend",
+  "authors": [
+    {
+      "name": "xinshukeji",
+      "email": "service@xinshukeji.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "thinkweb\\auth\\": "src"
+    }
+  },
+  "require": {
+  }
+}
