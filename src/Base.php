@@ -142,7 +142,7 @@ abstract class Base{
             return false;
         }
         $sessionStore = $this->sessionStore;
-        $sessionStore->delete($token);
+        $sessionStore->delete($this->sessionStoreKey . $token);
         $this->model->clean($user);
         return true;
     }
