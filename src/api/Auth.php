@@ -1,5 +1,6 @@
 <?php
 namespace thinkweb\auth\api;
+use thinkweb\auth\AuthException;
 use thinkweb\auth\Base;
 
 /**
@@ -14,12 +15,18 @@ class Auth extends Base{
     }
 
     public function doLogin($user) {
+		if(!$user){
+            throw new AuthException('login fail');
+        }
         //生成token
         $serialise = serialize($user);
         $time = time();
         $token = md5(md5($serialise) . $time);
         //保存token
         $this->sessionStore->set($this->sessionStoreKey . $token, $serialise, $this->sessionStoreOption);
+		if(!$rs){
+            throw new AuthException('storeError');
+        }
         return $token;
     }
 
