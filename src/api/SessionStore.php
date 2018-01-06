@@ -17,7 +17,7 @@ class SessionStore{
 
     public function set($key, $info, $option = []){
         list($expiration) = $option;
-        $this->store->set($key, $info, $expiration);
+        return $this->store->set($key, $info, $expiration);
     }
 
     public function delete($key){
